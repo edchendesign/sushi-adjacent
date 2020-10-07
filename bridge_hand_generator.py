@@ -71,6 +71,14 @@ def deal_hand(n):
     # choose vulnerability
     def vul():
         return np.random.choice(['N/S','E/W','None','Both'], size=1, replace=True)
+    # if lists instantiated, store direction label as first item in list
+    try:
+        All_North.append('North')
+        All_South.append('South')
+        All_East.append('East')
+        All_West.append('West')
+    except:
+        pass
     # deal hands
     for i in range(n):
         deal = np.random.choice(cards, size=52, replace=False)
@@ -122,15 +130,16 @@ deal_hand(3)
 
 # print hands for one side when All_North, All_South, All_East, and All_West are defined
 def print_one_side(a):
-    for i in range(len(a)):
+    print('Hands for ',a[0],'\r\n')
+    for i in range(len(a)-1):
         print(i+1,'. Dealer:',Hand_Dealer[i],' Vulnerable:',Hand_Vul[i])
-        print('S: ',', '.join(a[i][0]),'\r\n'
-              'H: ',', '.join(a[i][1]),'\r\n'
-              'D: ',', '.join(a[i][2]),'\r\n'
-              'C: ',', '.join(a[i][3]),'\r\n')
+        print('S: ',', '.join(a[i+1][0]),'\r\n'
+              'H: ',', '.join(a[i+1][1]),'\r\n'
+              'D: ',', '.join(a[i+1][2]),'\r\n'
+              'C: ',', '.join(a[i+1][3]),'\r\n')
 
-# example: print all the South hands dealt above
-print_one_side(All_South)
+# example: print all the East hands dealt above
+print_one_side(All_East)
 
 
 
