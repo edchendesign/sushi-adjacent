@@ -87,7 +87,14 @@ def deal_hand(n):
         except:
             pass
         # format and print out each hand for all directions
-        print(i+1,'. Dealer:',dealer()[0],' Vulnerable:',vul()[0],'\r\n')
+        dealer_choice = dealer()[0]
+        vul_choice = vul()[0]
+        try:
+            Hand_Dealer.append(dealer_choice)
+            Hand_Vul.append(vul_choice)
+        except:
+            pass     
+        print(i+1,'. Dealer:',dealer_choice,' Vulnerable:',vul_choice,'\r\n')
         print('\t\t\t\t','North','\r\n'
               '\t\t\t\t','S: ',', '.join(North[0]),'\r\n'
               '\t\t\t\t','H: ',', '.join(North[1]),'\r\n'
@@ -109,12 +116,14 @@ All_North = []
 All_South = []
 All_East = []
 All_West = []
+Hand_Dealer = []
+Hand_Vul = []
 deal_hand(3)
 
 # print hands for one side when All_North, All_South, All_East, and All_West are defined
 def print_one_side(a):
     for i in range(len(a)):
-        print(i+1,'. ')
+        print(i+1,'. Dealer:',Hand_Dealer[i],' Vulnerable:',Hand_Vul[i])
         print('S: ',', '.join(a[i][0]),'\r\n'
               'H: ',', '.join(a[i][1]),'\r\n'
               'D: ',', '.join(a[i][2]),'\r\n'
@@ -122,7 +131,6 @@ def print_one_side(a):
 
 # example: print all the South hands dealt above
 print_one_side(All_South)
-
 
 
 
