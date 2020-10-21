@@ -6,3 +6,5 @@ This is a repository for coding projects. Contents:
 
 2. VSOP_valuation.py: python code in spyder that provides a Monte Carlo based estimate of the value of the right to buy stock in the future at the current price using 100 units of the S&P 500 as an example. The accompanying GPSC.csv file provides 5 years of daily trading data used for the analysis
 
+3. stock_variance_over_time.py: python code in spyder that plots coefficient of variation for a stock against trading days held 
+
